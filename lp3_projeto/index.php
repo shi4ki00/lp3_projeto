@@ -45,6 +45,10 @@ $rotas = [
     '/livros/adicionar'     => ['controller' => 'LivroController', 'metodo' => 'adicionar'],
     '/livros/editar'        => ['controller' => 'LivroController', 'metodo' => 'editar'],
     '/livros/excluir'       => ['controller' => 'LivroController', 'metodo' => 'excluir'],
+    '/filmes'               => ['controller' => 'FilmeController',    'metodo' => 'index'],
+    '/filmes/adicionar'     => ['controller' => 'FilmeController',    'metodo' => 'adicionar'],
+    '/filmes/editar'        => ['controller' => 'FilmeController',    'metodo' => 'editar'],
+    '/filmes/excluir'       => ['controller' => 'FilmeController',    'metodo' => 'excluir'],
 ];
 
 if (array_key_exists($uri, $rotas)) {

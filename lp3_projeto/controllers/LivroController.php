@@ -16,6 +16,7 @@ class LivroController
         if (!isset($arquivo) || !is_array($arquivo) || empty($arquivo['name'])) return $imagemAtual;
         if (!isset($arquivo['error']) || $arquivo['error'] !== UPLOAD_ERR_OK || !is_uploaded_file($arquivo['tmp_name'])) return $imagemAtual;
 
+        // Confere o conteúdo real do arquivo, sem confiar apenas no tipo enviado pelo navegador.
         $permitidos = ['image/jpeg' => 'jpg', 'image/png' => 'png', 'image/gif' => 'gif', 'image/webp' => 'webp'];
         $info = @getimagesize($arquivo['tmp_name']);
         $mime = $info['mime'] ?? '';

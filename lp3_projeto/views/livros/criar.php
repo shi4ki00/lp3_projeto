@@ -1,20 +1,13 @@
 <?php include __DIR__ . '/../layout/header.php'; ?>
-<div class="page-layout"><?php include __DIR__ . '/../layout/nav.php'; ?><div class="content-panel">
-        <h3>Cadastrar livro</h3>
-        <?php if (!empty($erro)): ?><div class="alert alert-danger"><?= htmlspecialchars($erro) ?></div><?php endif; ?>
-        <form method="post" action="/lp3_projeto/livros/adicionar" enctype="multipart/form-data">
-            <div class="mb-3"><label class="form-label" for="titulo">Título *</label><input class="form-control" id="titulo" name="titulo" maxlength="200" required value="<?= htmlspecialchars($livro['titulo'] ?? '') ?>"></div>
-            <div class="mb-3"><label class="form-label" for="autor">Autor *</label><input class="form-control" id="autor" name="autor" maxlength="150" required value="<?= htmlspecialchars($livro['autor'] ?? '') ?>"></div>
-            <div class="mb-3"><label class="form-label" for="isbn">ISBN</label><input class="form-control" id="isbn" name="isbn" maxlength="20" value="<?= htmlspecialchars($livro['isbn'] ?? '') ?>"></div>
-            <div class="mb-3"><label class="form-label" for="ano_publicacao">Ano de publicação</label><input class="form-control" type="number" min="0" max="65535" id="ano_publicacao" name="ano_publicacao" value="<?= htmlspecialchars((string)($livro['ano_publicacao'] ?? '')) ?>"></div>
-            <div class="mb-3"><label class="form-label" for="id_genero">Gênero</label><select class="form-select" id="id_genero" name="id_genero">
-                    <option value="">Sem gênero</option><?php foreach ($generos as $genero): ?><option value="<?= (int)$genero['id'] ?>" <?= (string)($livro['id_genero'] ?? '') === (string)$genero['id'] ? 'selected' : '' ?>><?= htmlspecialchars($genero['nome']) ?></option><?php endforeach; ?>
-                </select><?php if (empty($generos)): ?><small class="text-muted">Cadastre um gênero antes, se desejar vincular o livro.</small><?php endif; ?></div>
-            <div class="mb-3"><label class="form-label" for="sinopse">Sinopse</label><textarea class="form-control" id="sinopse" name="sinopse" rows="4"><?= htmlspecialchars($livro['sinopse'] ?? '') ?></textarea></div>
-            <div class="mb-3"><label class="form-label" for="capa">Capa do livro (JPG, PNG, GIF ou WebP)</label><input class="form-control" type="file" id="capa" name="capa" accept="image/jpeg,image/png,image/gif,image/webp"><?php if (!empty($livro['capa'])): ?><div class="mt-2"><img src="/lp3_projeto/uploads/livros/<?= rawurlencode(basename($livro['capa'])) ?>" alt="Capa atual" style="width:80px;height:110px;object-fit:cover">
-                        <p class="form-text">A capa atual será mantida se nenhum novo arquivo for enviado.</p>
-                    </div><?php endif; ?></div>
-            <button class="btn btn-success" type="submit">Salvar</button> <a class="btn btn-secondary" href="/lp3_projeto/livros">Cancelar</a>
-        </form>
-    </div>
-</div><?php include __DIR__ . '/../layout/footer.php'; ?>
+<div class="page-layout"><?php include __DIR__ . '/../layout/nav.php'; ?><div class="content-panel"><h3>Cadastrar livro</h3>
+<?php if (!empty($erro)): ?><div class="alert alert-danger"><?= htmlspecialchars($erro) ?></div><?php endif; ?>
+<form method="post" action="/lp3_projeto/livros/adicionar" enctype="multipart/form-data">
+<div class="mb-3"><label class="form-label" for="titulo">Título *</label><input class="form-control" id="titulo" name="titulo" maxlength="200" required value="<?= htmlspecialchars($livro['titulo'] ?? '') ?>"></div>
+<div class="mb-3"><label class="form-label" for="autor">Autor *</label><input class="form-control" id="autor" name="autor" maxlength="150" required value="<?= htmlspecialchars($livro['autor'] ?? '') ?>"></div>
+<div class="mb-3"><label class="form-label" for="isbn">ISBN</label><input class="form-control" id="isbn" name="isbn" maxlength="20" value="<?= htmlspecialchars($livro['isbn'] ?? '') ?>"></div>
+<div class="mb-3"><label class="form-label" for="ano_publicacao">Ano de publicação</label><input class="form-control" type="number" min="0" max="65535" id="ano_publicacao" name="ano_publicacao" value="<?= htmlspecialchars((string)($livro['ano_publicacao'] ?? '')) ?>"></div>
+<div class="mb-3"><label class="form-label" for="id_genero">Gênero</label><select class="form-select" id="id_genero" name="id_genero"><option value="">Sem gênero</option><?php foreach ($generos as $genero): ?><option value="<?= (int)$genero['id'] ?>" <?= (string)($livro['id_genero'] ?? '') === (string)$genero['id'] ? 'selected' : '' ?>><?= htmlspecialchars($genero['nome']) ?></option><?php endforeach; ?></select><?php if (empty($generos)): ?><small class="text-muted">Cadastre um gênero antes, se desejar vincular o livro.</small><?php endif; ?></div>
+<div class="mb-3"><label class="form-label" for="sinopse">Sinopse</label><textarea class="form-control" id="sinopse" name="sinopse" rows="4"><?= htmlspecialchars($livro['sinopse'] ?? '') ?></textarea></div>
+<div class="mb-3"><label class="form-label" for="capa">Capa do livro (JPG, PNG, GIF ou WebP)</label><input class="form-control" type="file" id="capa" name="capa" accept="image/jpeg,image/png,image/gif,image/webp"><?php if (!empty($livro['capa'])): ?><div class="mt-2"><img src="/lp3_projeto/uploads/livros/<?= rawurlencode(basename($livro['capa'])) ?>" alt="Capa atual" style="width:80px;height:110px;object-fit:cover"><p class="form-text">A capa atual será mantida se nenhum novo arquivo for enviado.</p></div><?php endif; ?></div>
+<button class="btn btn-success" type="submit">Salvar</button> <a class="btn btn-secondary" href="/lp3_projeto/livros">Cancelar</a>
+</form></div></div><?php include __DIR__ . '/../layout/footer.php'; ?>
