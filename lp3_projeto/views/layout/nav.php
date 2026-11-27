@@ -13,6 +13,7 @@
             <li><a href="/lp3_projeto/generos">Gêneros</a></li>
             <li><a href="/lp3_projeto/livros">Livros</a></li>
             <li><a href="/lp3_projeto/filmes">Filmes</a></li>
+            <li><a href="/lp3_projeto/fornecedores">Fornecedores</a></li>
         </ul>
     </nav>
 </aside>
